@@ -1,0 +1,14 @@
+server:
+  port: 8282
+
+spring:
+  config:
+    import: "optional:configserver:http://config-service:8088"
+    activate:
+      on-profile: docker
+---
+spring:
+  application:
+    name: organization-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
